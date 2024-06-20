@@ -204,6 +204,20 @@ void success(){
 void displayMenu(){
 	cout<<"Menu: \n 1. Register a Patient \n 2. Register a doctor \n 3. Register an appointment \n 4. Display Patients \n 5. Display Doctors \n 6. Display appointments \n 7. Exit \n\n\n";
 }
+void check_number_input(int &num){
+    while(true)
+    {
+        if(cin.fail())
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+            cerr<<"input must be a number: "<<endl;
+            cin>>num;
+        }
+        if(!cin.fail())
+            break;
+    }
+}
 int main(){
 	PatientsLl * patients = new PatientsLl();
     DoctorsLl * doctors = new DoctorsLl();
@@ -212,7 +226,7 @@ int main(){
     int choice;
     displayMenu();
     cout<<"Enter your choice:";
-    cin>>choice;
+    check_number_input(choice);
     	switch(choice){
     		case 1:
     		{	
