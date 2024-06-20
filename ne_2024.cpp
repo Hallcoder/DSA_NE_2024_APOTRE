@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string>
+#include <limits>
 using namespace std;
 
 struct Patient{
@@ -226,6 +227,7 @@ int main(){
     int choice;
     displayMenu();
     cout<<"Enter your choice:";
+    cin>>choice;
     check_number_input(choice);
     	switch(choice){
     		case 1:
